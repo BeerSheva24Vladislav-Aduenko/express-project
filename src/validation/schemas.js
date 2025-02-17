@@ -1,5 +1,5 @@
 import Joi from "joi";
-import config from 'config';
+import config from "config";
 import { joiPasswordExtendCore } from "joi-password";
 const joiPassword = Joi.extend(joiPasswordExtendCore);
 export const schemaPost = Joi.object({
@@ -30,8 +30,8 @@ export const schemaPut = Joi.object({
 });
 const schemaUser = Joi.string().email().required();
 export const schemaGetAccount = Joi.object({
-  email: schemaUser
-})
+  email: schemaUser,
+});
 const passwordSchema = joiPassword
   .string()
   .min(8)
@@ -46,5 +46,5 @@ const passwordSchema = joiPassword
 export const schemaAccount = Joi.object({
   email: schemaUser,
   password: passwordSchema,
-  role: Joi.string().valid(...config.get("accounting.roles"))
+  role: Joi.string().valid(...config.get("accounting.roles")),
 });

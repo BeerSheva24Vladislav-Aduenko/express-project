@@ -38,7 +38,7 @@ class CoursesService {
   updateCourse(id, updatingObj) {
     this.#notFound(id);
     this.#courses[id] = { ...this.#courses[id], ...updatingObj };
-    return this.#courses[id]
+    return this.#courses[id];
   }
   #notFound(id) {
     if (!this.#courses[id]) {
